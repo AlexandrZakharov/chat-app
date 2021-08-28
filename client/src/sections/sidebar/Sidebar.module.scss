@@ -1,0 +1,87 @@
+@import "../../variables.scss";
+
+.sidebar {
+  background: $components;
+  height: 100%;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 10px 0;
+  -webkit-box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.103);
+  border-right: 1px solid #e6e6e6;
+  @media screen and (max-width: 620px) {
+    display: none;
+  }
+  
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid $border;
+    padding-bottom: 20px;
+    width: 100%;
+    &__avatar {
+      object-fit: cover;
+      border-radius: 50%;
+      width: 58px;
+      height: 58px;
+    }
+    &__name {
+      margin-top: 6px;
+      &__text {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      &__icon {
+        margin-left: 4px;
+        font-size: 13px;
+        transform: rotate(-90deg) translateX(1px);
+      }
+    }
+  }
+  .nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    &__item {
+      list-style: none;
+      padding: 10px 0;
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      &__icon {
+        font-size: 36px;
+        color: $secondary;
+      }
+      &.active .nav__item__icon {
+        color: $active;
+      }
+      &.active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: $active;
+        border: 1px solid $components;
+      }
+      &:last-child {
+        margin-top: auto;
+        border-top: 1px solid $border;
+        padding-top: 20px;
+      }
+      &:last-child:hover .nav__item__icon {
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+}

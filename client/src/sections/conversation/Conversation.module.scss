@@ -1,0 +1,175 @@
+@import "../../variables.scss";
+
+.conversation {
+  background: $components;
+  width: 800px;
+  margin: 40px 0;
+  display: grid;
+  grid-template-rows: 50px auto 50px;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.103);
+  margin-left: 10px;
+  margin-right: 10px;
+  justify-self: center;
+  @media screen and (max-width: 1680px) {
+    width: 600px;
+  }
+  @media screen and (max-width: 1190px) {
+    min-width: 90%;
+  }
+  @media screen and (max-width: 550px) {
+    max-width: 400px;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    background: #f8f8f8;
+    border-bottom: 1px solid $border;
+    padding: 0 20px;
+    &__left {
+      .header__avatar {
+        object-fit: cover;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &__center {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      .header__name {
+        font-weight: 500;
+        display: flex;
+        .header__status {
+          margin-left: 6px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #01cf6f;
+          transform: translateY(7px);
+        }
+      }
+      .header__activity {
+        color: #8b8b8b;
+        font-size: 13px;
+      }
+    }
+    &__right {
+      margin-left: auto;
+      background: $components;
+      -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 0px 4px 8px 2px rgba(34, 60, 80, 0.1);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .header__more {
+        font-size: 16px;
+        color: $secondary;
+        cursor: pointer;
+      }
+    }
+  }
+  .field {
+    padding: 20px;
+    // overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgb(236, 236, 236);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+      border-radius: 100px;
+    }
+    .message {
+      display: flex;
+      margin-bottom: 18px;
+      // align-self: flex-end;
+      &__left {
+        .message__avatar {
+          object-fit: cover;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      &__right {
+        display: flex;
+        flex-direction: column;
+        .message__text {
+          // background: linear-gradient(to bottom right, #363636, #585858);
+          padding: 18px;
+          color: #f8f8f8;
+          font-size: 14px;
+          font-weight: 300;
+        }
+
+        .message__timestamp {
+          margin-top: 4px;
+          font-size: 11px;
+          font-weight: 400;
+          color: #777777;
+        }
+      }
+    }
+  }
+  .input {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $border;
+    .wrapper {
+      -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 0px 4px 8px 2px rgba(34, 60, 80, 0.1);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__left {
+      margin-right: 20px;
+      .input__attachments {
+        font-size: 19px;
+        transform: rotate(-135deg);
+      }
+    }
+    &__right {
+      margin-left: auto;
+      
+      .input__send {
+        font-size: 16px;
+        transform: rotate(-45deg);
+        color: #f8f8f8;
+        
+      }
+    }
+    &__right.wrapper {
+      background: $active;
+      cursor: pointer;
+      &:hover {
+        background: rgb(43, 46, 206);
+      }
+    }
+    .input__input {
+      height: 100%;
+      outline: none;
+      border: none;
+      width: 85%;
+    }
+  }
+}
